@@ -2,10 +2,7 @@ package com.lh.collection;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class MapTest {
     /**
@@ -17,6 +14,7 @@ public class MapTest {
         map.put("name", "拉普拉斯");
         map.put(null, "拉格朗日");
         map.put(null, "拉格朗日2");
+        map.put("", "拉格朗日2");
         map.put("age", "23");
 
         System.out.println(map);
@@ -36,8 +34,58 @@ public class MapTest {
         }
     }
 
+    /**
+     * TreeMap key可以重复，但第二个将覆盖第一个的值；key不允许为null，会报错（NPE）
+     */
     @Test
     public void testTreeMap() {
+        TreeMap<String, String> treeMap = new TreeMap<>();
+        treeMap.put("name", "拉普拉斯");
+//        treeMap.put(null, "拉格朗日");
+        treeMap.put("age", "33");
+
+        Set<Map.Entry<String, String>> entries = treeMap.entrySet();
+        for (Map.Entry<String, String> entry : entries) {
+            System.out.println(
+                    entry.getKey() + "=" + entry.getValue()
+            );
+        }
+
+        class Person implements Comparable<Person> {
+            public String name;
+            public Integer age;
+
+            public Person() {}
+
+            public Person(String name, Integer age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            @Override
+            public int compareTo(Person person) {
+                return this.age - person.age;
+            }
+
+            @Override
+            public String toString() {
+                return "Person{" +
+                        "name='" + name + '\'' +
+                        ", age=" + age +
+                        '}';
+            }
+        }
+        Person person = new Person("拉格朗日" , 21);
+        Person person1 = new Person("拉普拉斯" , 32);
+        Person person2 = new Person("阿兹卡班" , 50);
+        Person person3 = new Person("邓布利多" , 10);
+        TreeMap<Person, Integer> personMap = new TreeMap<>();
+        personMap.put(person, person.age);
+        personMap.put(person1, person1.age);
+        personMap.put(person2, person2.age);
+        personMap.put(person3, person3.age);
+        int size = personMap.size();
+        System.out.println(personMap);
 
     }
 }
