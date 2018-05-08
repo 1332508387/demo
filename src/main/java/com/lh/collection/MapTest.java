@@ -17,15 +17,29 @@ public class MapTest {
         map.put("", "拉格朗日2");
         map.put("age", "23");
 
+        map.get("name");
+        map.remove("age");
+
         System.out.println(map);
     }
 
+    /**
+     * LinkedHashMap：继承 HashMap
+     * Entry 维护顺序（双向链表）
+     * static class Entry<K,V> extends HashMap.Node<K,V> {
+         Entry<K,V> before, after;
+         Entry(int hash, K key, V value, Node<K,V> next) {
+         super(hash, key, value, next);
+         }
+     }
+     */
     @Test
     public void testLinkedHahsMap() {
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
         map.put("name", "拉普拉斯");
         map.put("name", "拉格朗日");
         map.put("age", "32");
+        map.get("name");
 
         Set<String> strings = map.keySet();
         for (String key:strings) {
