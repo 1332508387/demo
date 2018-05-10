@@ -57,6 +57,7 @@ public class MapTest {
         treeMap.put("name", "拉普拉斯");
 //        treeMap.put(null, "拉格朗日");
         treeMap.put("age", "33");
+        treeMap.put("age", "31");
 
         Set<Map.Entry<String, String>> entries = treeMap.entrySet();
         for (Map.Entry<String, String> entry : entries) {

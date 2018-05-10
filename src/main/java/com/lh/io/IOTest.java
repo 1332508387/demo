@@ -10,8 +10,8 @@ import java.io.*;
 import java.nio.channels.FileChannel;
 
 public class IOTest {
-    private static final String FILE_NAME = "data.txt";
-    private static final String SERIALIZED_FILE_NAME = "serialized.txt";
+    public static final String FILE_NAME = "data.txt";
+    public static final String SERIALIZED_FILE_NAME = "serialized.txt";
 
     /**
      * InputStream：字节输入流，读文件

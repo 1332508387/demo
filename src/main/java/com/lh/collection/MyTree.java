@@ -43,6 +43,15 @@ public class MyTree {
         public void setRight(Node right) {
             this.right = right;
         }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "value=" + value +
+                    ", left=" + left +
+                    ", right=" + right +
+                    '}';
+        }
     }
 
     public void add(Integer value) {
@@ -84,17 +93,52 @@ public class MyTree {
         scanner(root);
     }
 
+    public Node search(Integer value) {
+        Node currNode = root;
+        while (true) {
+            if (currNode == null) {
+                break;
+            }
+            if (value == currNode.value) {
+                return currNode;
+            }
+            if (value < currNode.value) {
+                currNode = currNode.left;
+            }
+            if (value > currNode.value) {
+                currNode = currNode.right;
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         MyTree myTree = new MyTree();
-        Random random = new Random();
+//        Random random = new Random();
+//
+//        for (int i = 0; i < 50; i++) {
+//            int num = random.nextInt(10000);
+//            System.out.print(num + " ");
+//
+//            myTree.add(num);
+//        }
+//        System.out.println();
+        myTree.add(25);
+        myTree.add(32);
+        myTree.add(75);
+        myTree.add(100);
+        myTree.add(35);
+        myTree.add(10);
+        myTree.scanner();
 
-        for (int i = 0; i < 50; i++) {
-            int num = random.nextInt(10000);
-            System.out.print(num + " ");
-
-            myTree.add(num);
+        System.out.println();
+        Node node = myTree.search(75);
+        if (node == null) {
+            System.out.println("未找到");
+        } else {
+            System.out.println(node);
         }
         System.out.println();
-        myTree.scanner();
+        System.out.println(myTree.root);
     }
 }
