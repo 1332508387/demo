@@ -1,5 +1,6 @@
 package com.lh.collection;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.junit.jupiter.api.Test;
 
 import javax.sound.midi.Soundbank;
@@ -68,8 +69,11 @@ public class ListTest {
         list.get(1);
         list.remove(1);
 
-        for (Integer ele : list) {
+        /*for (Integer ele : list) {
             System.out.println(ele);
-        }
+        }*/
+
+        list.forEach(n -> System.out.println(n));
+        list.forEach(System.out :: println);
     }
 }
