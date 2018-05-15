@@ -3,10 +3,11 @@ package com.lh.collection;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MapTest {
     /**
-     * HashMap key不能重复，当key一样时，第二个将会把第一个替换掉；key可以null，但只能有一个key为null
+     * HashMap key不能重复，当key一样时，第二个将会把第一个替换掉；key可以null，value 可以为 null，但只能有一个key为null
      */
     @Test
     public void testHashMap() {
@@ -16,6 +17,7 @@ public class MapTest {
         map.put(null, "拉格朗日2");
         map.put("", "拉格朗日2");
         map.put("age", "23");
+        map.put("sex", null);
 
         map.get("name");
         map.remove("age");
@@ -49,15 +51,16 @@ public class MapTest {
     }
 
     /**
-     * TreeMap key可以重复，但第二个将覆盖第一个的值；key不允许为null，会报错（NPE）
+     * TreeMap key可以重复，但第二个将覆盖第一个的值；key不允许为null，会报错（NPE），value 可以为 null
      */
     @Test
     public void testTreeMap() {
         TreeMap<String, String> treeMap = new TreeMap<>();
         treeMap.put("name", "拉普拉斯");
 //        treeMap.put(null, "拉格朗日");
-        treeMap.put("age", "33");
-        treeMap.put("age", "31");
+        treeMap.put("age", null);
+//        treeMap.put("age", "31");
+        System.out.println(treeMap);
 
         Set<Map.Entry<String, String>> entries = treeMap.entrySet();
         for (Map.Entry<String, String> entry : entries) {
@@ -102,5 +105,16 @@ public class MapTest {
         int size = personMap.size();
         System.out.println(personMap);
 
+    }
+
+    /**
+     * ConcurrentHashMap：key，value都不能为 null
+     */
+    @Test
+    public void testConcurrentHashMap() {
+        ConcurrentHashMap<String, String> hashMap = new ConcurrentHashMap();
+        hashMap.put("name", "拉格朗日");
+//        hashMap.put("age", null);
+        System.out.println(hashMap);
     }
 }
