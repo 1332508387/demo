@@ -1,7 +1,5 @@
 package com.lh.concurrent;
 
-import sun.applet.Main;
-
 import java.util.concurrent.CountDownLatch;
 
 public class CountDownLatchTest {

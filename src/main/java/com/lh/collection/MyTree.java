@@ -1,8 +1,5 @@
 package com.lh.collection;
 
-import java.awt.print.PrinterGraphics;
-import java.util.Random;
-
 public class MyTree {
     private Node root;
 

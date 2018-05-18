@@ -1,7 +1,5 @@
 package com.lh.concurrent;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Semaphore;
 

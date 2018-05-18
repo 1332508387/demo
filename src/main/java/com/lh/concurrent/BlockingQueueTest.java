@@ -1,7 +1,6 @@
 package com.lh.concurrent;
 
 import org.junit.jupiter.api.Test;
-import sun.awt.SunHints;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

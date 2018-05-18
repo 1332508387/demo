@@ -1,7 +1,5 @@
 package com.lh.thread;
 
-import java.util.concurrent.TimeUnit;
-
 public class ValatileTest {
 
     public static void main(String[] args) throws InterruptedException {

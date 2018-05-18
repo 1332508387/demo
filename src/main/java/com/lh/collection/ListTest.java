@@ -1,9 +1,7 @@
 package com.lh.collection;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import org.junit.jupiter.api.Test;
 
-import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
