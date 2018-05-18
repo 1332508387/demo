@@ -2,28 +2,24 @@ package com.lh.mode;
 
 public class SingleTest2 {
     static class Single {
-        private static Single single;
-        private static String[] names;
-
-        static {
-            names = new String[1000];
-            for (int i = 0; i < 1000; i++) {
-                names[i] = "12345";
-            }
-        }
+        // 使用 volatile 防止指令重排序
+        private volatile static Single single;
 
         private Single() {}
 
         public static Single getSingle() {
-            if (single == null) {
+            Single s = single;
+            if (s == null) {
                 synchronized (String.class) {
-                    if (single == null) {
-                        single = new Single();
+                    s = single;
+                    if (s == null) {
+                        s = new Single();
+                        single = s;
                         System.out.println("single 实例被创建了。。。");
                     }
                 }
             }
-            return single;
+            return s;
         }
     }
 
@@ -35,7 +31,7 @@ public class SingleTest2 {
             threads[i] = new Thread(
                     () -> {
                         Single single = Single.getSingle();
-                        System.out.println(single.names);
+                        System.out.println(single);
                     }
             );
         }
