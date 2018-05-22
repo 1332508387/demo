@@ -1,4 +1,4 @@
-package com.lh.mode;
+package com.lh.mode.single;
 
 import org.junit.jupiter.api.Test;
 

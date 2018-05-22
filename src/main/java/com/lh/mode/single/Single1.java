@@ -1,4 +1,4 @@
-package com.lh.mode;
+package com.lh.mode.single;
 
 /**
  * 单利模式：非懒加载

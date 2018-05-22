@@ -1,4 +1,4 @@
-package com.lh.mode;
+package com.lh.mode.single;
 
 /**
  * 单例模式：枚举实现单例，防反射、防反序列化

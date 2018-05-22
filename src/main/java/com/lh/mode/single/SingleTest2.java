@@ -1,4 +1,4 @@
-package com.lh.mode;
+package com.lh.mode.single;
 
 public class SingleTest2 {
     static class Single {

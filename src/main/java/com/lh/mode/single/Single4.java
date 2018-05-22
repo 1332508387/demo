@@ -1,4 +1,4 @@
-package com.lh.mode;
+package com.lh.mode.single;
 
 /**
  * 单例模式：双重检查
