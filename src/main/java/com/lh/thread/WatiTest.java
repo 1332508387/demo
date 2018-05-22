@@ -54,7 +54,7 @@ public class WatiTest {
         new Thread(new Wait(o)).start();
         new Thread(new Wait(o)).start();
 
-        new Thread(new Notify(o)).start();
+        new Thread(new Notify(o)).start();System.gc();
 
         while (true) ;
     }
