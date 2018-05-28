@@ -11,6 +11,13 @@ import java.util.LinkedList;
  * List 有序、可重复
  */
 public class ListTest {
+    public static void main(String[] args) {
+//        System.out.println("123".hashCode());
+        int h = "56489".hashCode();
+        System.out.println(h % 8);
+        System.out.println(h & 7);
+    }
+
     /**
      * ArrayList 使用数据存储元素
      */
