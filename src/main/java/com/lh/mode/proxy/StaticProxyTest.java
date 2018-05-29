@@ -1,36 +1,38 @@
 package com.lh.mode.proxy;
 
 /**
- * 静态代理
+ * 静态代理：可以做到在不修改目标对象的功能前提下,对目标功能扩展
+ * 缺点：因为代理对象需要与目标对象实现一样的接口,所以会有很多代理类,类太多.同时,一旦接口增加方法,目标对象与代理对象都要维护
  */
 public class StaticProxyTest {
-    interface Work {
-        void doWork();
+    interface IUserDao {
+        void save();
     }
 
-    static class Student implements Work {
+    static class UserDao implements IUserDao {
         @Override
-        public void doWork() {
-            System.out.println("学生自己写作业。。。");
+        public void save() {
+            System.out.println("保存用户信息。。。");
         }
     }
 
-    static class StudentProxy implements Work {
-        private Work work;
+    static class UserDaoProxy implements IUserDao {
+        private IUserDao userDao;
 
-        public StudentProxy(Student student) {
-            this.work = student;
+        public UserDaoProxy(IUserDao userDao) {
+            this.userDao = userDao;
         }
 
         @Override
-        public void doWork() {
-            System.out.println("我代理学生写作业。。。");
-            work.doWork();
+        public void save() {
+            System.out.println("开启事务");
+            userDao.save();
+            System.out.println("提交事务");
         }
     }
 
     public static void main(String[] args) {
-        StudentProxy proxy = new StudentProxy(new Student());
-        proxy.doWork();
+        UserDaoProxy proxy = new UserDaoProxy(new UserDao());
+        proxy.save();
     }
 }
