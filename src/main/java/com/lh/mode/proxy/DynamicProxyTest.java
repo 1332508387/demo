@@ -1,11 +1,12 @@
 package com.lh.mode.proxy;
 
-import sun.applet.Main;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * 动态代理
+ */
 public class DynamicProxyTest {
     public static void main(String[] args) {
         Student student = new Student();

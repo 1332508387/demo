@@ -1,5 +1,8 @@
 package com.lh.mode.proxy;
 
+/**
+ * 静态代理
+ */
 public class StaticProxyTest {
     interface Work {
         void doWork();
