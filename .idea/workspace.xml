@@ -27,8 +27,8 @@
       <file leaf-file-name="BloomFilterTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lh/util/BloomFilterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="240">
+              <caret line="18" column="19" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="22" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#257#265#0" expanded="true" />
@@ -727,7 +727,7 @@
       <workItem from="1527728143432" duration="2118000" />
       <workItem from="1527743422848" duration="4060000" />
       <workItem from="1527748129145" duration="3112000" />
-      <workItem from="1527814843568" duration="7062000" />
+      <workItem from="1527814843568" duration="7696000" />
     </task>
     <task id="LOCAL-00001" summary="添加和修改">
       <created>1525399286216</created>
@@ -876,7 +876,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527746339685</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="添加和修改">
+      <created>1527832875588</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1527832875588</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -912,7 +919,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250245000" />
+    <option name="totallyTimeSpent" value="250879000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1391,8 +1398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lh/util/BloomFilterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="240">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="22" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#257#265#0" expanded="true" />
