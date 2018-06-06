@@ -41,6 +41,7 @@ public class StaticFactoryTest {
             }
             return shape;
         }
+
     }
 
     public static void main(String[] args) {
