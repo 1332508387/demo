@@ -1,4 +1,4 @@
-package com.lh.ClassLoaderTest;
+package com.lh.classLoader;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,9 +24,9 @@ public class MyClassLoaderTest {
             }
         };
 
-        Object object = myLoader.loadClass("com.lh.ClassLoaderTest.MyClassLoaderTest");
+        Object object = myLoader.loadClass("com.lh.classLoader.MyClassLoaderTest");
 
         System.out.println(object);
-        System.out.println(object instanceof com.lh.ClassLoaderTest.MyClassLoaderTest);
+        System.out.println(object instanceof com.lh.classLoader.MyClassLoaderTest);
     }
 }
