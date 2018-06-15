@@ -1,7 +1,9 @@
 package com.lh.base;
 
+import org.junit.jupiter.api.Test;
+
 public class BaseTest {
-//    @Test
+    @Test
     public void test() {
         Integer a = 1;
         Integer b = 2;
@@ -19,9 +21,7 @@ public class BaseTest {
         long l = 3L;
         int i = 3;
         System.out.println(l == i);             // true
-    }
 
-    public static enum E{
-        Intance
+        System.out.println(-5 % 3);
     }
 }
