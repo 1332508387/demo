@@ -1,52 +1,49 @@
 package com.lh.mode.proxy;
 
-import sun.applet.Main;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * 动态代理
+ */
 public class DynamicProxyTest {
-    public static void main(String[] args) {
-        Student student = new Student();
-        StudentProxy proxy = new StudentProxy(student);
-        Work work = (Work) proxy.getProxy();
-        work.doWork();
+    interface IUserDao {
+        void save();
     }
 
-    interface Work {
-        void doWork();
-    }
-
-    static class Student implements Work {
-        public void doWork() {
-            System.out.println("我是学生写作业。。。");
-        }
-
-        public void play() {
-            System.out.println("play...");
+    static class UserDao implements IUserDao {
+        @Override
+        public void save() {
+            System.out.println("保存用户信息。。。");
         }
     }
 
-    static class StudentProxy implements InvocationHandler {
-        private Student student;
+    static class TransactionProxy implements InvocationHandler {
+        private Object target;
 
-        public StudentProxy(Student student) {
-            this.student = student;
+        public TransactionProxy(Object target) {
+            this.target = target;
         }
 
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-            System.out.println("我代理学生写作业");
-            method.invoke(student);
-            System.out.println("写完了。。。");
-            return proxy;
+            System.out.println("开启事务");
+            method.invoke(target);
+            System.out.println("提交事务");
+            return null;
         }
 
         public Object getProxy() {
-            return Proxy.newProxyInstance(student.getClass().getClassLoader(), student.getClass().getInterfaces(), this);
+            return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
         }
     }
 
+    public static void main(String[] args) {
+        IUserDao userDao = new UserDao();
+        TransactionProxy proxy = new TransactionProxy(userDao);
+        userDao = (IUserDao) proxy.getProxy();
+        userDao.save();
+    }
 
 }
