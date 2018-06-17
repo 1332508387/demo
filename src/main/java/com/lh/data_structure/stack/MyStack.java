@@ -1,9 +1,25 @@
 package com.lh.data_structure.stack;
 
+import javax.xml.bind.annotation.XmlType;
+
 public class MyStack {
-    private static final int CAPACITY = 1 << 4;
+    private static final int DEFAULT_CAPACITY = 1 << 4;
     private int top = -1;
-    private Object[] stack = new Object[CAPACITY];
+    private Object[] stack;
+
+    public MyStack() {
+        this.stack = new Object[DEFAULT_CAPACITY];
+    }
+
+    public MyStack(int initCapacity) {
+        if (initCapacity == 0) {
+            this.stack = new Object[DEFAULT_CAPACITY];
+        } else if (initCapacity > 0) {
+            this.stack = new Object[initCapacity];
+        } else {
+            throw new RuntimeException("over flow");
+        }
+    }
 
     public Object pop() {
         if (top == -1) {
@@ -13,7 +29,7 @@ public class MyStack {
     }
 
     public boolean push(Object ele) {
-        if (top == CAPACITY - 1) {
+        if (top == stack.length) {
             return false;
         }
         stack[++top] = ele;
