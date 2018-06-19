@@ -1,7 +1,8 @@
 package com.lh.data_structure.stack;
 
-import javax.xml.bind.annotation.XmlType;
-
+/**
+ * 实现一个后进先出的栈
+ */
 public class MyStack {
     private static final int DEFAULT_CAPACITY = 1 << 4;
     private int top = -1;

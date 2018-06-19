@@ -37,9 +37,10 @@ public class MyLinkedList {
     /**
      * 项链表中添加节点
      *
-     * @param node
+     * @param data
      */
-    public void add(Node node) {
+    public void add(Object data) {
+        Node node = new Node(data, null);
         if (head == null) {
             head = node;
             tail = head;
@@ -68,11 +69,11 @@ public class MyLinkedList {
      * @param index
      * @return
      */
-    public Node get(int index) {
+    public Object get(int index) {
          if (index < 0 || index > size - 1) {
              throw new IndexOutOfBoundsException();
          }
-         return getPreNode(index);
+         return getPreNode(index).getData();
     }
 
     /**
@@ -89,15 +90,57 @@ public class MyLinkedList {
         }
     }
 
+    /**
+     *
+     *
+     * @return
+     */
+    public Object remove(int index) {
+        if (index < 0 || index > size - 1) {
+            throw new IndexOutOfBoundsException();
+        }
+        Object data = null;
+
+        Node currNode = getPreNode(index);
+        Node preNode = getPreNode(index - 1);
+        preNode.next = currNode.next;
+
+        if (currNode == head) {
+            head = currNode.next;
+        }
+        if (currNode == tail) {
+            tail = preNode;
+        }
+
+        data = currNode.data;
+        // gc
+        currNode.next = null;
+        currNode.data = null;
+
+        size--;
+
+        return data;
+    }
+
+    public int size() {
+        return size;
+    }
 
     public static void main(String[] args) {
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.print();
-        myLinkedList.add(new Node("aaa", null));
-        myLinkedList.add(new Node("bbb", null));
-        myLinkedList.add(new Node("ccc", null));
-        System.out.println("0->" + myLinkedList.get(0).getData());
-        System.out.println("2->" + myLinkedList.get(2).getData());
+        myLinkedList.add("aaa");
+        myLinkedList.add("bbb");
+        myLinkedList.add("ccc");
+        System.out.println("0->" + myLinkedList.get(0));
+        System.out.println("2->" + myLinkedList.get(2));
+//        System.out.println("2->" + myLinkedList.get(3).getData());
         myLinkedList.print();
+
+        System.out.println();
+        myLinkedList.remove(0);
+        myLinkedList.remove(0);
+        myLinkedList.print();
+
     }
 }
