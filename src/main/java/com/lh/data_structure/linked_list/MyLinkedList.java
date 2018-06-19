@@ -141,6 +141,5 @@ public class MyLinkedList {
         myLinkedList.remove(0);
         myLinkedList.remove(0);
         myLinkedList.print();
-
     }
 }
