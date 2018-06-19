@@ -10,6 +10,7 @@ public class MyHashTableTest {
 
     @Test
     public void test1() {
+        System.out.println(-1 % 2);
         String[] strs = {"aaa", "ertgdfg", "adftgwefgv", "adgdfgsd", "aergrthhfg"};
         int length = strs.length;
         for (int i = 0; i < length; i++) {
