@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {12, 0, 5, 56, 89, 10, 4, 3, 32};
+        int[] arr = ArrayUtil.initArray(128);
         quickSort(arr, 0, arr.length - 1);
         String string = Arrays.toString(arr);
         System.out.println(string);
